@@ -9,10 +9,11 @@ const Login = () => {
     // const [flag, setFlag] = useState = (true);
 
     const handleLogin = (res) => {
-        localStorage.setItem("auth",JSON.stringify(res.profileObj))
-        console.log('Login Success: currentUser:', res.profileObj);
-        navigate("/home");
-
+        if(res){
+            localStorage.setItem("auth",JSON.stringify(res.profileObj))
+            console.log('Login Success: currentUser:', res,res.profileObj);
+            navigate("/home");
+        }
         // alert(
         //   `Logged in successfully welcome ${res.profileObj.name} 😍. \n See console for full profile object.`
         // );
