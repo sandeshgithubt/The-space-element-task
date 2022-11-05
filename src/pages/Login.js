@@ -12,7 +12,8 @@ const Login = () => {
         if(res){
             localStorage.setItem("auth",JSON.stringify(res.profileObj))
             console.log('Login Success: currentUser:', res,res.profileObj);
-            res.profileObj ? navigate("/home"): null;
+            if(res && res.profileObj)
+                navigate("/home");
         }
         // alert(
         //   `Logged in successfully welcome ${res.profileObj.name} 😍. \n See console for full profile object.`
