@@ -12,9 +12,10 @@ const Login = () => {
         if(res){
             localStorage.setItem("auth",JSON.stringify(res.profileObj))
             console.log('Login Success: currentUser:', res,res.profileObj);
-            if(res && res.profileObj)
+            if(res && res.profileObj){
                 navigate("/home");
                 window.location.reload();
+            }
         }
         // alert(
         //   `Logged in successfully welcome ${res.profileObj.name} 😍. \n See console for full profile object.`
