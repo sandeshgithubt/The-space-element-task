@@ -30,10 +30,9 @@ const [question, setquestion] = useState("What language do you prefer to read wi
 
     }
     useEffect(()=>{
-        // window.location.reload();
-        // const loadgoogleTranslate = ()=> {
-        //     new window.google.translate.TranslateElement("translate");
-        //   }
+       if(!localStorage.getItem('auth')){
+         navigate("/")
+       }
     },[]);
     return ( 
         <>

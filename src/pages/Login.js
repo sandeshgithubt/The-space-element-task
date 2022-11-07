@@ -32,8 +32,12 @@ const Login = () => {
             {/* <button className="sub-btn">Sign Up</button> 
             <button className="sub-btn">Sign In</button>   */}
 
+            {/* dummy key: 707788443358-u05p46nssla3l8tmn58tpo9r5sommgks.apps.googleusercontent.com */}
+
+            {/*my key :  124830515711-lsmqf3fjom225m6acj2osbpurh15fckk.apps.googleusercontent.com */}
+
             <GoogleLogin
-                    clientId={'124830515711-lsmqf3fjom225m6acj2osbpurh15fckk.apps.googleusercontent.com'}
+                    clientId={'707788443358-u05p46nssla3l8tmn58tpo9r5sommgks.apps.googleusercontent.com'}
                     buttonText="Log in with Google"
                     onSuccess={handleLogin}
                     onFailure={handleLogin}

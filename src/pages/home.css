@@ -86,11 +86,12 @@ h1{
     width:60%;
     margin: 8% auto 1% auto;
     text-align: center;
-    border: 2px solid black;
+    /* border: 2px solid black; */
     font-size: 19px;
     padding: 50px;
+    border-radius: 5px;
     background-color: whitesmoke;
-    box-shadow: 8px 6px 4px rgb(177, 60, 60);
+    box-shadow: 8px 6px 4px 3px rgb(177, 60, 60);
 
 }
 
@@ -115,6 +116,7 @@ div .heading{
  }
 
  .goog-te-combo{
+    /* margin-top: 15px; */
     padding:5px 10px;
     width:180px;
     border-radius: 5px;
