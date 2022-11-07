@@ -17,9 +17,7 @@ const Login = () => {
                 window.location.reload();
             }
         }
-        // alert(
-        //   `Logged in successfully welcome ${res.profileObj.name} 😍. \n See console for full profile object.`
-        // );
+       
     }
 
     return ( 
