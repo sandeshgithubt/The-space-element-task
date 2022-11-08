@@ -24,7 +24,7 @@ const Login = () => {
     }
     const componentClicked = ()=>{console.log("sds")}
     const responseFacebook = (res)=> {
-        if(res){
+        if(res && res.id){
             console.log(res);
             localStorage.setItem("auth",JSON.stringify(res))
                 navigate("/home");
@@ -34,7 +34,7 @@ const Login = () => {
     
     const fbContent = (
         <FacebookLogin
-                appId="509538204418069"
+                appId="526620655661064"
                 autoLoad={false}
                 fields="name,email,picture"
                 onClick={componentClicked}
