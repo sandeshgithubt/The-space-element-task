@@ -1,34 +1,24 @@
+import ReactFacebookLogin from 'react-facebook-login';
 import { GoogleLogout } from "react-google-login";
 import React,{ useState,useEffect } from "react";
 import {useNavigate} from "react-router-dom";
-// import { googleTranslate} from "../consants/constant";
-import { useTranslation } from "react-i18next";
-import i18next from "i18next";
-import cookies from "js-cookie";
-// import {translate} from "../components/translate"
+
 import "./home.css";
+import { googleApiKey } from "../components/constant";
 
 
-const Home = ({text}) => {
+const Home = () => {
 const navigate = useNavigate();
-const [languageCodes,setLanguageCodes] = useState([]);
-const [language, setLanguage] = useState("en");
-const [question, setquestion] = useState("What language do you prefer to read with?");
+
 
     const onSuccess = (res) => {
         console.log(res)
         localStorage.removeItem("auth");
         navigate("/");
         console.log('Logout made successfully');
-        // alert('Logout made successfully');        
+        
     }
-    const getLanguageCodes = languageCodes => {
-        setLanguageCodes({ languageCodes });
-      };
-    
-    const changeHandler = ()=>{
-
-    }
+   
     useEffect(()=>{
        if(!localStorage.getItem('auth')){
          navigate("/")
@@ -38,24 +28,20 @@ const [question, setquestion] = useState("What language do you prefer to read wi
         <>
         <div className="nav-bar">
             <h1><i>Home</i></h1>
-            {/* <div>This is my first blog</div> */}
+       
 
             <div class="right-container">
-
             <input type="text" class="search-box" placeholder="search"/>
                    
-            {/* <button className="sub-btn">{text}</button> */}
-
-            <GoogleLogout
-                clientId={'707788443358-u05p46nssla3l8tmn58tpo9r5sommgks.apps.googleusercontent.com'}
+             <GoogleLogout
+                clientId={googleApiKey}
                 buttonText="Logout"
                 onLogoutSuccess={onSuccess}
-              
-                // cookiePolicy={'single_host_origin'}
-                />
+              />
 
-           {/* <div id="translate"></div> */}
-</div>
+              <ReactFacebookLogin/>
+          
+            </div>
         </div>
 
 
@@ -65,8 +51,7 @@ const [question, setquestion] = useState("What language do you prefer to read wi
         </div>
 
         <center>
-            {/* <button className="sub-btn">Convert Hindi</button> 
-            <button className="sub-btn">Convert English</button>  */}
+         
              <div id="translate"></div>
         </center>
        </>

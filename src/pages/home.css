@@ -123,5 +123,14 @@ div .heading{
     /* background-color: whitesmoke; */
  }
 
+ .kep-login-facebook{
+   margin-left: 10px;
+   font-weight: 300 !important;
+   padding: 12px !important;
+   text-transform: unset !important;
+   border-radius: 5px !important;
+
+ }
+
 
 

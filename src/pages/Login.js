@@ -1,7 +1,9 @@
 
 import { useState } from 'react';
+import ReactFacebookLogin from 'react-facebook-login';
 import {GoogleLogin} from 'react-google-login';
 import { useNavigate } from "react-router-dom";
+import { googleApiKey } from '../components/constant';
 import './home.css';
 
 const Login = () => {
@@ -10,9 +12,10 @@ const Login = () => {
 
     const handleLogin = (res) => {
         if(res){
-            localStorage.setItem("auth",JSON.stringify(res.profileObj))
+          
             console.log('Login Success: currentUser:', res,res.profileObj);
             if(res && res.profileObj){
+                localStorage.setItem("auth",JSON.stringify(res.profileObj))
                 navigate("/home");
                 window.location.reload();
             }
@@ -35,12 +38,14 @@ const Login = () => {
             {/*my key :  124830515711-lsmqf3fjom225m6acj2osbpurh15fckk.apps.googleusercontent.com */}
 
             <GoogleLogin
-                    clientId={'707788443358-u05p46nssla3l8tmn58tpo9r5sommgks.apps.googleusercontent.com'}
+                    clientId={googleApiKey}
                     buttonText="Log in with Google"
                     onSuccess={handleLogin}
                     onFailure={handleLogin}
-                    cookiePolicy={'single_host_origin'}
+                  
             />
+
+            <ReactFacebookLogin/>
             
         </div>
     </div>
@@ -52,6 +57,7 @@ const Login = () => {
         <div>
             <h2 className='sub-heading'>Click On Login With Google</h2>
         </div>
+        
 
     </>
         
