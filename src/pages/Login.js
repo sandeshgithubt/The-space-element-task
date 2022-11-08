@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import ReactFacebookLogin from 'react-facebook-login';
+import FacebookLogin from 'react-facebook-login';
 import {GoogleLogin} from 'react-google-login';
 import { useNavigate } from "react-router-dom";
 import { googleApiKey } from '../components/constant';
@@ -22,7 +22,25 @@ const Login = () => {
         }
        
     }
-
+    const componentClicked = ()=>{console.log("sds")}
+    const responseFacebook = (res)=> {
+        if(res){
+            console.log(res);
+            localStorage.setItem("auth",JSON.stringify(res))
+                navigate("/home");
+                window.location.reload();
+        }
+    }
+    
+    const fbContent = (
+        <FacebookLogin
+                appId="509538204418069"
+                autoLoad={false}
+                fields="name,email,picture"
+                onClick={componentClicked}
+                callback={responseFacebook}
+              />
+      );
     return ( 
         <>
     <div className="nav-bar">
@@ -45,8 +63,11 @@ const Login = () => {
                   
             />
 
-            <ReactFacebookLogin/>
-            
+             {/* <ReactFacebookLogin
+               appId='1177380133214970'
+              /> */}
+
+            {fbContent}
         </div>
     </div>
     

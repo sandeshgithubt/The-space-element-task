@@ -1,4 +1,4 @@
-import ReactFacebookLogin from 'react-facebook-login';
+import FacebookLogin from 'react-facebook-login';
 import { GoogleLogout } from "react-google-login";
 import React,{ useState,useEffect } from "react";
 import {useNavigate} from "react-router-dom";
@@ -18,7 +18,12 @@ const navigate = useNavigate();
         console.log('Logout made successfully');
         
     }
-   
+    const onLogout =  () =>{
+      localStorage.removeItem("auth");
+      navigate("/");
+      console.log('Logout made successfully');
+    }
+    
     useEffect(()=>{
        if(!localStorage.getItem('auth')){
          navigate("/")
@@ -28,18 +33,19 @@ const navigate = useNavigate();
         <>
         <div className="nav-bar">
             <h1><i>Home</i></h1>
-       
-
             <div class="right-container">
             <input type="text" class="search-box" placeholder="search"/>
                    
-             <GoogleLogout
+             {/* <GoogleLogout
                 clientId={googleApiKey}
                 buttonText="Logout"
                 onLogoutSuccess={onSuccess}
-              />
+              /> */}
+               <button className="sub-btn" onClick={onLogout}>Logout</button> 
 
-              <ReactFacebookLogin/>
+             
+              
+
           
             </div>
         </div>
