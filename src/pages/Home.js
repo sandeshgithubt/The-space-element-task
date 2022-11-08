@@ -33,8 +33,8 @@ const navigate = useNavigate();
         <>
         <div className="nav-bar">
             <h1><i>Home</i></h1>
-            <div class="right-container">
-            <input type="text" class="search-box" placeholder="search"/>
+            <div className="right-container">
+            <input type="text" className="search-box" placeholder="search"/>
                    
              {/* <GoogleLogout
                 clientId={googleApiKey}

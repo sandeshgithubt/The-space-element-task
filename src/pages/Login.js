@@ -3,7 +3,7 @@ import { useState } from 'react';
 import FacebookLogin from 'react-facebook-login';
 import {GoogleLogin} from 'react-google-login';
 import { useNavigate } from "react-router-dom";
-import { googleApiKey } from '../components/constant';
+import { facebookApiKey, googleApiKey } from '../components/constant';
 import './home.css';
 
 const Login = () => {
@@ -34,7 +34,7 @@ const Login = () => {
     
     const fbContent = (
         <FacebookLogin
-                appId="526620655661064"
+                appId={facebookApiKey}
                 autoLoad={false}
                 fields="name,email,picture"
                 onClick={componentClicked}
@@ -46,7 +46,7 @@ const Login = () => {
     <div className="nav-bar">
         <h1><i>LOGIN</i></h1>
 
-        <div class="right-container">
+        <div className="right-container">
             
             {/* <button className="sub-btn">Sign Up</button> 
             <button className="sub-btn">Sign In</button>   */}
